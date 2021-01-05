@@ -1,11 +1,11 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
 
-  export let code;
-  export let state;
-  export let callbackUri;
-  export let team;
-  export let scope;
+  export let code = ``;
+  export let state = ``;
+  export let callbackUri = ``;
+  export let team = ``;
+  export let scope = ``;
   export const clientId = `ff768664c96d04235b1cc4af1e3b37a8`;
 
   const didMount = () => {
