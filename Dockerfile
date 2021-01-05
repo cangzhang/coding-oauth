@@ -18,4 +18,4 @@ COPY --from=build /app/package.json /usr/share/app/package.json
 EXPOSE 3000
 
 WORKDIR /usr/share/app
-CMD pm2 start yarn --name sapper -- start
+CMD pm2 start npm --interpreter bash --name sapper -- start
