@@ -6,7 +6,7 @@ WORKDIR /app
 ENV PATH /app/node-modules/.bin:$PATH
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn install --silent --prod=true --cache-folder=.yarn/
+RUN yarn install --silent --prod=true
 COPY . ./
 RUN yarn build
 
@@ -18,4 +18,5 @@ COPY --from=build /app/package.json /usr/share/app/package.json
 EXPOSE 3000
 
 WORKDIR /usr/share/app
-CMD pm2 start npm --interpreter bash --name sapper -- start
+ENV PATH /usr/share/app/node_modules/.bin:$PATH
+CMD pm2-runtime start npm --name sapper -- start
